@@ -1,0 +1,34 @@
+.controls {
+    display: flex;
+    align-items: center;
+  }
+  
+  .controls button {
+    --size: 30px;
+    height: var(--size);
+    width: var(--size);
+    text-align: center;
+  }
+  
+  .pan {
+    display: inline-block;
+  }
+  
+  .pan > div {
+    display: flex;
+    justify-content: center;
+  }
+  
+  #reset {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    font-size: 1.5rem;
+  }
+  
+  .zoom {
+    display: inline-flex;
+    flex-direction: column;
+    margin-left: 0.5rem;
+  }

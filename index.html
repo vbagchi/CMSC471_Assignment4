@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="pan-zoom.css" />
+    <link rel="stylesheet" href="world-map.css" />
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://d3js.org/topojson.v2.min.js"></script>
+    <script defer type="module">
+      import {createWorldMap} from './world-map.js';
+      createWorldMap('world-map');
+    </script>
+  </head>
+  <body>
+    <svg id="world-map" />
+    <div class="tooltip">
+      <div>
+        <label>Country:</label>
+        <span class="country"></span>
+      </div>
+      <div>
+        <label>Population:</label>
+        <span class="population"></span>
+      </div>
+    </div>
+  </body>
+</html>
