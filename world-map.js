@@ -51,7 +51,9 @@ async function load(svg, path) {
   const data = (await res.json()).features;
 
   // Load the id and population of each country.
-  res = await fetch('world-population.tsv');
+
+  /*
+  res = await fetch('dataset.tsv');
   const tsv = await res.text();
   const lines = tsv.split('\n');
   const population = lines.map(line => {
@@ -59,13 +61,32 @@ async function load(svg, path) {
     return {id, population};
   });
 
+*/
+
+  res = await fetch('./dataset.tsv');
+  const tsv = await res.text();
+  const lines = tsv.split('\n');
+  const population = lines.map(line => {
+    const columns = line.split('\t');
+     const id = columns[1];
+     const population= columns[2];
+    return {id, population};
+  });
+
+
+  res = await fetch('dataset.json');
+  const countrydata = (await res.json()).features;
+
+
   // Add the population of each country to its data object.
   const populationById = {};
   for (const d of population) {
-    populationById[d.id] = Number(d.population);
+    populationById[d.id] = d.population;
   }
   for (const d of data) {
     d.population = populationById[d.id];
+    console.log(d)
+
   }
 
   // Create an SVG group containing a path for each country.
