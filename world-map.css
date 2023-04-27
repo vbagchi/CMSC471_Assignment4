@@ -16,7 +16,7 @@ body {
   }
   
   svg {
-    background-color: linen;
+    background-color: rgb(255, 255, 255);
     cursor: move;
   }
   
