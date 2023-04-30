@@ -1,21 +1,4 @@
-﻿indicator,ISO Country code,"GDP 
-($ USD billions PPP)","GDP 
-($ USD billions PPP)","GDP 
-($ USD billions PPP)","GDP 
-($ USD billions PPP)",GDP per capita in $ (PPP),GDP per capita in $ (PPP),GDP per capita in $ (PPP),GDP per capita in $ (PPP),"health expenditure 
-% of GDP","health expenditure 
-% of GDP","health expenditure 
-% of GDP","health expenditure 
-% of GDP","health expenditure 
-% of GDP","health expenditure 
-% of GDP","health expenditure 
-% of GDP","health expenditure 
-% of GDP","health expenditure 
-% of GDP","health expenditure 
-per person","health expenditure 
-per person","health expenditure 
-per person",unemployment (%),unemployment (%),Military Spending as % of GDP,Military Spending as % of GDP
-data year,2018,2018,2019,2020,2021,2018,2019,2020,2021,2014,2015,2016,2017,2018,2019,2020,2021,2021 or latest,2015,2018,2019,2018,2021,2021,2019
+﻿indicator,ISO Country code,"GDP ($ USD billions PPP) 2018","GDP ($ USD billions PPP) 2019","GDP ($ USD billions PPP) 2020","GDP ($ USD billions PPP) 2021",GDP per capita in $ (PPP) 2018,GDP per capita in $ (PPP) 2019,GDP per capita in $ (PPP) 2020,GDP per capita in $ (PPP) 2021,"health expenditure % of GDP 2014","health expenditure % of GDP 2015","health expenditure % of GDP 2016","health expenditure % of GDP 2017","health expenditure % of GDP 2018","health expenditure % of GDP 2019","health expenditure % of GDP 2020","health expenditure % of GDP 2021","health expenditure % of GDP 2022","health expenditure per person 2015","health expenditure per person 2018","health expenditure per person 2019",unemployment (%) 2018,unemployment (%) 2021,Military Spending as % of GDP 2021,Military Spending as % of GDP 2019
 Afghanistan,AFG,75.6,78.6,76.7,,2082,2152,2078,,3.7,3.26,3.51,3.37,3.2,3.21,,,3.21,184,70,65.8,8.5,13.28,...,1.20%
 Albania,ALB,38.2,39,37.6,40.8,13498,13999,13632,15646,3.05,3.44,3.96,3.61,,3.92,3.1,,3.92,774,274.9,,16.3,11.82,1.42%,1.30%
 Algeria,DZA,491.1,496.1,470.8,488.9,11909,12008,11323,12037,,,7.34,6.51,5.87,6.1,,,6.1,"1,031",256,248.2,11.2,12.7,5.59%,6.00%
@@ -102,7 +85,7 @@ Kazakhstan,KAZ,466.9,487.9,475.7,494.7,26155,27464,26750,28600,3.42,2.79,2.98,2.
 Kenya,KEN,223,234.4,233.9,251.4,4443,4647,4587,5024,4.72,4.74,4.9,4.96,5.11,4.97,5.08,4.8,4.8,157,73.5,83.4,11,5.74,1.12%,1.20%
 Korea (Dem. People’s Rep.),PRK,0,0,0,0,2198,2192,2172,,11.23,9.86,10.09,10.86,11.97,12.39,,,12.39,-,,,4.3,2.59,...,
 Korea (Rep.),KOR,"2,164.80","2,213.40","2,194.50","2,282.80",,,,,,,,,,,,,,-,2543.6,2624.5,3.7,3.53,2.78%,2.70%
-Kosovo,-,19.3,20.2,19.2,20.9,43044,42998,45226,46918,,,4.33,4.33,4.46,,,,4.46,-,,,-,,0.94%,0.80%
+Kosovo,XXK,19.3,20.2,19.2,20.9,43044,42998,45226,46918,,,4.33,4.33,4.46,,,,4.46,-,,,-,,0.94%,0.80%
 Kuwait,KWT,211.3,210.1,191.5,0,52291,52055,47303,,4.4,4.77,5.85,6.37,6.39,6.49,6.55,,6.55,"2,978",1733.8,1758.7,2.4,3.71,6.69%,5.60%
 Kyrgyzstan,KGZ,32.5,33.9,31.1,32.2,5256,5480,4985,5288,5.53,5.99,6.59,6.03,5.55,5.37,,,5.55,287,65.7,62.1,7.7,9.1,1.67%,1.50%
 Laos,LAO,53.6,56.5,56.8,58.3,7774,8220,8238,8674,2.94,,,2.52,2.37,2.3,2.23,,2.23,-,57.7,68.2,1.5,1.26,...,0.20%
