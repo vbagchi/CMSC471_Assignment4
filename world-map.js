@@ -9,7 +9,7 @@ const SVG_HEIGHT = 600;
 // to a shade of blue for country fills.
 
 //const format = d3.format(',');
-// const tooltip = d3.select('.tooltip');
+const tooltip = d3.select('.tooltip');
 //const tooltipCountry = tooltip.select('.country');
 //const tooltipPopulation = tooltip.select('.population');
 // function hideTooltip() {
@@ -130,7 +130,22 @@ function updateChart() {
     } else if (values[d.id] < baseline) {
       return redScale(values[d.id]);
     } 
-  });
+  })
+    .on('mouseenter', function(d) {
+    tooltip.transition().duration(200).style('opacity', 0.9);
+    tooltip.html(`${d.id}: ${values[d.id]}`)
+      .style('left', (d3.event.pageX + 10) + 'px')
+      .style('top', (d3.event.pageY - 20) + 'px');
+  })
+  .on('mousemove', function() {
+    tooltip.style('left', (d3.event.pageX + 10) + 'px')
+      .style('top', (d3.event.pageY - 20) + 'px');
+  })
+  .on('mouseleave', function() {
+    tooltip.transition().duration(200).style('opacity', 0);
+  })
+  
+  ;
 }
 
 async function load(svg, path) {

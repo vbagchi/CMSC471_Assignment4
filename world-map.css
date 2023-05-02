@@ -22,7 +22,7 @@ body {
   
   .tooltip {
     position: absolute;
-    background: darkgreen;
+    background: rgb(0, 37, 100);
     border-radius: 5px;
     color: white;
     opacity: 0; /* initially hidden */
