@@ -153,6 +153,13 @@ async function load(svg, path) {
   // Load the id, name, and polygon coordinates of each country.
   let res = await fetch('world-countries.json');
   const data = (await res.json()).features;
+  for (let i = 0; i < data.length; i++) {
+    let feature = data[i];
+    let id = feature["id"];
+    let name = feature["properties"]["name"];
+    id_to_country[id] = name;
+    console.log(id_to_country)
+  }
 
   d3.csv("cleaned_dataset.csv", data => {
     let country = data["ISO Country code"]
@@ -165,8 +172,6 @@ async function load(svg, path) {
         dataset[key][year][country] = value;
       }
     }
-    id_to_country[data["ISO Country code"]] = data["indicator"];
-    console.log(id_to_country)
   })
 
   // Create an SVG group containing a path for each country.
