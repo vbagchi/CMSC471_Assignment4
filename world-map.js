@@ -16,6 +16,7 @@ const tooltip = d3.select('.tooltip');
 //   tooltip.style('opacity', 0);
 // }
 
+var id_to_country = {}
 var dataset = {
   "GDP ($ USD billions PPP)": {
     "2018": {},
@@ -133,7 +134,7 @@ function updateChart() {
   })
     .on('mouseenter', function(d) {
     tooltip.transition().duration(200).style('opacity', 0.9);
-    tooltip.html(`${d.id}: ${values[d.id]}`)
+    tooltip.html(`${id_to_country[d.id]}: ${values[d.id]}`)
       .style('left', (d3.event.pageX + 10) + 'px')
       .style('top', (d3.event.pageY - 20) + 'px');
   })
@@ -152,7 +153,7 @@ async function load(svg, path) {
   // Load the id, name, and polygon coordinates of each country.
   let res = await fetch('world-countries.json');
   const data = (await res.json()).features;
-  
+
   d3.csv("cleaned_dataset.csv", data => {
     let country = data["ISO Country code"]
     let keys = Object.keys(dataset);
@@ -164,6 +165,8 @@ async function load(svg, path) {
         dataset[key][year][country] = value;
       }
     }
+    id_to_country[data["ISO Country code"]] = data["indicator"];
+    console.log(id_to_country)
   })
 
   // Create an SVG group containing a path for each country.
