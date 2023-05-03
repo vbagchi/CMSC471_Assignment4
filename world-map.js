@@ -83,7 +83,27 @@ var yearDropdown = d3.select('#year-dropdown')
     let newYear = d3.select(this).property('value');
     changeYear(newYear);
   });
+var playAll = d3.select('#year-text')
+          .attr("class", "play-button")
+          .text("▶ PLAY ALL YEARS")
 
+var playInterval;
+
+          playAll.on("click", function() {
+
+               var i = 0;
+
+               playInterval = setInterval(function() {
+                    changeYear(years[i])
+
+                    i++;
+
+                    if(i > years.length - 1) {
+                         clearInterval(playInterval);
+                    }
+
+               }, 700);
+          });
 yearDropdown.selectAll('option')
   .data(years)
   .enter()
