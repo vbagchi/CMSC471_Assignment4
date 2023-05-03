@@ -29,3 +29,31 @@ body {
     padding: 0.5rem;
     pointer-events: none;
   }
+
+ .play-button {
+    margin-left: 10px;
+    margin-bottom: 15px;
+    font-style: italic;
+    cursor: pointer;
+    color: grey;
+     }
+   .play-button:hover {
+      color: black;
+     }
+    .buttons-container {
+          width: 520px;
+          margin-bottom: 25px;
+     }
+     .button {
+          float: left;
+          margin-left: 10px;
+          font-weight: lighter;
+          cursor: pointer;
+     }
+    .head {
+    font-family: sans-serif;
+    margin: auto;
+    display: flex;
+    color: grey;
+ 
+}
