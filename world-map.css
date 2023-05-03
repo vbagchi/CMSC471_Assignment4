@@ -32,7 +32,7 @@ body {
 
  .play-button {
     margin-left: 10px;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     font-style: italic;
     cursor: pointer;
     color: grey;
@@ -42,7 +42,7 @@ body {
      }
     .buttons-container {
           width: 520px;
-          margin-bottom: 25px;
+         margin-bottom: 10px;
      }
      .button {
           float: left;

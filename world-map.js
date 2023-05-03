@@ -83,7 +83,8 @@ var yearDropdown = d3.select('#year-dropdown')
     let newYear = d3.select(this).property('value');
     changeYear(newYear);
   });
-var playAll = d3.select('#year-text')
+
+var playAll = d3.select('#play-text')
           .attr("class", "play-button")
           .text("▶ PLAY ALL YEARS")
 
@@ -164,9 +165,16 @@ function updateChart() {
   })
   .on('mouseleave', function() {
     tooltip.transition().duration(200).style('opacity', 0);
-  })
-  
-  ;
+  });
+
+  var displayYear = d3.select('#year-text')
+          .attr("class", "play-button")
+          .text("Year : " + chosenYear)
+
+
+  var displayYear; 
+
+
 }
 
 async function load(svg, path) {
