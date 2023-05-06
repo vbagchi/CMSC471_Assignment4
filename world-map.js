@@ -62,6 +62,7 @@ var years = Object.keys(dataset[chosenMetric]);
 var chosenYear = "2018";
 var chosenCountry = "USA";
 var countryPaths;
+var legend = [];
 
 var metricDropdown = d3.select('#metric-dropdown')
   .append('select')
@@ -90,21 +91,17 @@ var playAll = d3.select('#play-text')
 
 var playInterval;
 
-          playAll.on("click", function() {
+playAll.on("click", function() {
+  var i = 0;
+  playInterval = setInterval(function() {
+    changeYear(years[i])
+    i++;
+    if(i > years.length - 1) {
+      clearInterval(playInterval);
+    }
+  }, 700);
+});
 
-               var i = 0;
-
-               playInterval = setInterval(function() {
-                    changeYear(years[i])
-
-                    i++;
-
-                    if(i > years.length - 1) {
-                         clearInterval(playInterval);
-                    }
-
-               }, 700);
-          });
 yearDropdown.selectAll('option')
   .data(years)
   .enter()
@@ -140,7 +137,6 @@ function updateChart() {
   let max = d3.max(numbers);
   let baseline = values[chosenCountry];
   let greenScale = d3.scaleSequentialLog(d3.interpolateGreens).domain([baseline, max]);
-  console.log(`baseline: ${baseline}, min: ${min}, max: ${max}`)
   let redScale = d3.scaleSequentialLog(d3.interpolateReds).domain([baseline, min]);
   countryPaths.attr('fill', d => {
     if (d.id == chosenCountry) {
@@ -167,14 +163,17 @@ function updateChart() {
     tooltip.transition().duration(200).style('opacity', 0);
   });
 
-  var displayYear = d3.select('#year-text')
-          .attr("class", "play-button")
-          .text("Year : " + chosenYear)
+  d3.select('#year-text')
+    .attr("class", "play-button")
+    .text("Year : " + chosenYear);
 
+  legend[0].select("circle").attr("fill", redScale(min));
+  legend[1].select("circle").attr("fill", 'rgb(255, 255, 0)');
+  legend[2].select("circle").attr("fill", greenScale(max));
 
-  var displayYear; 
-
-
+  legend[0].select("text").text(min);
+  legend[1].select("text").text(baseline);
+  legend[2].select("text").text(max);
 }
 
 async function load(svg, path) {
@@ -189,7 +188,8 @@ async function load(svg, path) {
     console.log(id_to_country)
   }
 
-  d3.csv("cleaned_dataset.csv", data => {
+  let values = await d3.csv("cleaned_dataset.csv");
+  await d3.csv("cleaned_dataset.csv", data => {
     let country = data["ISO Country code"]
     let keys = Object.keys(dataset);
     for (let key of keys){ 
@@ -201,7 +201,6 @@ async function load(svg, path) {
       }
     }
   })
-
   // Create an SVG group containing a path for each country.
   countryPaths = svg.append('g')
     .attr('class', 'countries')
@@ -214,7 +213,19 @@ async function load(svg, path) {
     //.on('mouseenter', pathEntered)
     //.on('mousemove', pathMoved)
     //.on('mouseout', hideTooltip);
-
+  
+  for (let i = 0; i < 3; i++) {
+    let group = d3.select("#legend")
+      .append("g")
+      .attr("transform", `translate(${40 + 200*i}, 20)`)
+    group.append("circle")
+      .attr("fill", "red")
+      .attr("r", 12.5)
+    group.append("text")
+      .attr("transform", "translate(20, 5)")
+    legend.push(group);
+  }
+  
   updateChart();
 }
 
