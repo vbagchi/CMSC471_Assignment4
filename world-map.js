@@ -194,7 +194,7 @@ function updateChart() {
   })
   .on('mouseenter', function(d) {
     tooltip.transition().duration(200).style('opacity', 0.9);
-    tooltip.html(`${d.id}: ${values[d.id]}`)
+    tooltip.html(`${id_to_country[d.id]}: ${values[d.id]}`)
       .style('left', (d3.event.pageX + 10) + 'px')
       .style('top', (d3.event.pageY - 20) + 'px');
   })
@@ -306,6 +306,8 @@ async function load(svg, path) {
         dataset[key][year][country] = value;
       }
     }
+    id_to_country[data["ISO Country code"]] = data["indicator"];
+    console.log(id_to_country)
   });
 
   // Create an SVG group containing a path for each country.
