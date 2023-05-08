@@ -191,6 +191,19 @@ function updateChart() {
     } else if (values[d.id] < baseline) {
       return redScale(values[d.id]);
     }
+  })
+  .on('mouseenter', function(d) {
+    tooltip.transition().duration(200).style('opacity', 0.9);
+    tooltip.html(`${d.id}: ${values[d.id]}`)
+      .style('left', (d3.event.pageX + 10) + 'px')
+      .style('top', (d3.event.pageY - 20) + 'px');
+  })
+  .on('mousemove', function() {
+    tooltip.style('left', (d3.event.pageX + 10) + 'px')
+      .style('top', (d3.event.pageY - 20) + 'px');
+  })
+  .on('mouseleave', function() {
+    tooltip.transition().duration(200).style('opacity', 0);
   });
 
   d3.select("#year-text")
