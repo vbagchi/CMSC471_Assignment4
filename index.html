@@ -7,18 +7,21 @@
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="https://d3js.org/topojson.v2.min.js"></script>
     <script defer type="module">
-      import {createWorldMap} from './world-map.js';
-      createWorldMap('world-map');
+      import { createWorldMap } from "./world-map.js";
+      createWorldMap("world-map");
     </script>
   </head>
   <body>
-    <h1 class="head"> World Map Metrics Comparison</h1>
+    <h1 class="head">World Map Metrics Comparison</h1>
     <div id="play-text"></div>
     <div id="year-text"></div>
 
     <svg id="world-map" />
-    <br>
-    <svg id="legend" height="50" width="872"/>
+    <div class="time-series-chart">
+      <svg id="time-series-graph" width="500" height="300"></svg>
+    </div>
+    <br />
+    <svg id="legend" height="50" width="872" />
     <div id="metric-dropdown"></div>
     <div id="year-dropdown"></div>
 
